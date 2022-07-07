@@ -60,6 +60,11 @@ function getCurrentLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
+function getCurrentLocation(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(searchLocation);
+}
+
 
 let dateElement = document.querySelector("#date");
 let currentTime = new Date();
@@ -67,5 +72,9 @@ dateElement.innerHTML = formatDate(currentTime);
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", submit);
+
+let currentLocationButton = document.querySelector("#currentLocation");
+currentLocationButton.addEventListener("click", getCurrentLocation);
+
 
 searchCity("Hong Kong");
