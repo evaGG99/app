@@ -2,87 +2,44 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
     <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="style.css" />
     <title>Weather App</title>
   </head>
-
   <body>
     <div class="container">
       <div class="weather-app">
-        <form class="search-form" id="search-form">
-          <div class="row">
-            <div class="col-6">
-              <input
-                type="search"
-                placeholder="Type a city.."
-                autofocus="on"
-                autocomplete="off"
-                id="city-input"
-                class="form-control shadow-sm"
-              />
-            </div>
-            <div class="col-3">
-              <input
-                type="submit"
-                value="Search"
-                class="form-control btn btn-primary shadow-sm"
-                id="search-city"
-              />
-            </div>
-            <div class="col-3">
-              <button
-                type="button"
-                class="btn btn-success shadow-sm w-100"
-                id="currentLocation"
-              >
-                Current
-              </button>
-            </div>
-          </div>
-        </form>
-        <h1 id="city"></h1>
+        <h1>Hong Kong</h1>
         <ul>
-          <li id="date"></li>
-          <li id="description"></li>
+          <li>Date Time</li>
+          <li>Clear</li>
         </ul>
         <div class="row">
           <div class="col-6">
-            <div class="clearfix">
-              <div class="float-left">
-                <span class="temperature" id="temperature"></span
-                ><span class="units">°C </span>
-              </div>
-            </div>
+            <img src="" alt="" />
+            12° | °F
           </div>
           <div class="col-6">
             <ul>
-              <li>
-                Humidity:
-                <span id="humidity"></span>%
-              </li>
-              <li>Wind: <span id="wind"></span>km/h</li>
+              <li>Precipitation: 0%</li>
+              <li>Humidity: 75%</li>
+              <li>Wind: 2 km/h</li>
             </ul>
           </div>
         </div>
-        <div>
-  </div>
-    </div>
-    <div>
+      </div>
       <small>
-        <a href="https://github.com/evaGG99/app" id="link">Open-source code</a>
-        by PG
-      </small>
+        <a href="https://www.google.com" target="_blank">Open-source code</a> by
+        PG</small
+      >
     </div>
-  
     <script src="script.js"></script>
   </body>
 </html>
