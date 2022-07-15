@@ -14,7 +14,7 @@ body {
     color: #748DA6;
     cursor: default;
   }
-  
+
   .weather-temp .active:hover{
     text-decoration: none;
   }
@@ -38,6 +38,7 @@ body {
   }
   
   .weather-app {
+    background-color: #ebf4f5;
     border: 1px solid #dadde1;
     padding: 15px;
     margin: 20px auto;
