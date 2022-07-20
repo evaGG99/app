@@ -22,32 +22,44 @@ function formatDate(date) {
 
   return `${day} ${hours}:${minutes}`;
 }
+
+function formatForecast(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+  return days[day];
+}
+
 //display weather forecast
 function displayForecast(response) {
-  console.log(response.data.daily);
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
-  let days = ["Thur", "Fri", "Sat", "Sun"];
-  days.forEach(function (day) {
+  // let days = ["Thur", "Fri", "Sat", "Sun"];
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 4){
     forecastHTML =
       forecastHTML +
       `            
   <div class="col-3">
     <div class="forecast-date">
-${day}    
-    <img src="http://openweathermap.org/img/wn/04d@2x.png" alt="" width="36">
+${formatForecast(forecastDay.dt)}    
+    <img src="http://openweathermap.org/img/wn/${
+      forecastDay.weather[0].icon
+    }@2x.png" alt="" width="36">
    <div class="forecast-temp">
     <span class="max-temp">
-      18°
+      ${Math.round(forecastDay.temp.max)}°
     </span>
     <span class="min-temp">
-      12°
+    ${Math.round(forecastDay.temp.min)}°
     </span>
    </div> 
   </div>
   </div>
   `;
+    }
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
@@ -56,7 +68,7 @@ function getForecast(coordinates) {
   console.log(coordinates);
   let apiKey = "2b445ee022e84ecff3f9a46865e98d05";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
-axios.get(apiUrl).then(displayForecast);
+  axios.get(apiUrl).then(displayForecast);
 }
 
 function displayWeatherCondition(response) {
