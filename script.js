@@ -22,8 +22,36 @@ function formatDate(date) {
 
   return `${day} ${hours}:${minutes}`;
 }
+//display weather forecast
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
 
-function displayWeatherCondition(response) {  
+  let forecastHTML = `<div class="row">`;
+  let days = ["Thur", "Fri", "Sat", "Sun"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `            
+  <div class="col-3">
+    <div class="forecast-date">
+${day}    
+    <img src="http://openweathermap.org/img/wn/04d@2x.png" alt="" width="36">
+   <div class="forecast-temp">
+    <span class="max-temp">
+      18°
+    </span>
+    <span class="min-temp">
+      12°
+    </span>
+   </div> 
+  </div>
+  </div>
+  `;
+  });
+  forecastElement.innerHTML = forecastHTML;
+}
+
+function displayWeatherCondition(response) {
   document.querySelector("#city").innerHTML = response.data.name;
   document.querySelector("#temperature").innerHTML = Math.round(
     response.data.main.temp
@@ -35,16 +63,14 @@ function displayWeatherCondition(response) {
   );
   document.querySelector("#description").innerHTML =
     response.data.weather[0].main;
-    
-    iconElement.setAttribute(
-      "src",
-      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-    );
-    iconElement.setAttribute("alt", response.data.weather[0].description);
 
-    celsiusTemperature = response.data.main.temp;
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 
-    
+  celsiusTemperature = response.data.main.temp;
 }
 
 function searchCity(city) {
@@ -76,13 +102,13 @@ function convertToFahrenheit(event) {
   let temperatureElement = document.querySelector("#temperature");
   unitCelsius.classList.remove("active"); //remove active class
   unitFahrenheit.classList.add("active");
-  let fahrenheitTemperature = (celsiusTemperature * 9) /5 + 32;
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 }
 
 function convertToCelsius(event) {
   event.preventDefault();
-  unitCelsius.classList.add("active"); 
+  unitCelsius.classList.add("active");
   unitFahrenheit.classList.remove("active");
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
@@ -109,3 +135,5 @@ let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
 searchCity("Hong Kong");
+
+displayForecast();
