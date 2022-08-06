@@ -85,7 +85,7 @@ function displayWeatherCondition(response) {
     response.data.weather[0].main;
 
   iconElement.setAttribute(
-    "src",
+    "src", 
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
@@ -147,8 +147,8 @@ let celsiusTemperature = null;
 let unitCelsius = document.querySelector("#unit-celsius");
 unitCelsius.addEventListener("click", convertToCelsius);
 
-let unitFahrenheit = document.querySelector("#unit-fahrenheit");
-unitFahrenheit.addEventListener("click", convertToFahrenheit);
+// let unitFahrenheit = document.querySelector("#unit-fahrenheit");
+// unitFahrenheit.addEventListener("click", convertToFahrenheit);
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSubmit);

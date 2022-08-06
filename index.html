@@ -18,6 +18,7 @@
   <body>
     <div class="container">
       <div class="weather-app">
+        <!-- <svg xmlns="http://www.w3.org/2000/svg" id="back-button" viewBox="0 0 24 24" width="24" height="24"><path fill-rule="evenodd" d="M15.28 5.22a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 000 1.06l6.25 6.25a.75.75 0 101.06-1.06L9.56 12l5.72-5.72a.75.75 0 000-1.06z"></path></svg>         -->
         <form class="search-form" id="search-form">
           <div class="row">
             <div class="col-6">
@@ -59,9 +60,8 @@
               <div class="float-left">
                 <span class="temperature" id="temperature"></span
                 ><span class="units">
-                  <a href="#" id="unit-celsius" class="active">°C</a> |
-                  <a href="#" id="unit-fahrenheit"> °F</a></span
-                >
+                  <a href="#" id="unit-celsius" class="active">°C</a> 
+                  <!-- <a href="#" id="unit-fahrenheit"> °F</a></span -->
               </div>
             </div>
           </div>
@@ -72,29 +72,26 @@
             </ul>
           </div>
         </div>
-          <div class="weather-forecast" id="forecast">
-            <div class="row">
-              <div class="col-2">
-                <div class="forecast-date">
-                Thur
-                </div>
-                <img src="http://openweathermap.org/img/wn/04d@2x.png" alt="">
-               <div class="forecast-temp">
-                <span class="max-temp">
-                  18°
-                </span>
-                <span class="min-temp">
-                  12°
-                </span>
-               </div> 
+        <div class="weather-forecast" id="forecast">
+          <div class="row">
+            <div class="col-2">
+              <div class="forecast-date">Thur</div>
+              <img src="http://openweathermap.org/img/wn/04d@2x.png" alt="" />
+              <div class="forecast-temp">
+                <span class="max-temp"> 18° </span>
+                <span class="min-temp"> 12° </span>
               </div>
             </div>
           </div>
-
-        <small id="link">
-          <a href="https://github.com/evaGG99/app" target="_blank">Open-source code</a> by PG
-        </small>
+        </div>
       </div>
+      <small id="link">
+        <a href="https://github.com/evaGG99/app" target="_blank"
+          >Open-source code</a
+        >
+        by PG
+      </small>  
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
